@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package hello;
+
+option java_multiple_files = true;
+option java_package = "top.qiyuey.demo.hello";
+option go_package = "/service";
+
+// The greeting service definition.
+service Greeter {
+    // Sends a greeting
+    rpc SayHello (HelloRequest) returns (HelloReply);
+    // A Bidirectional streaming RPC.
+    rpc SayHellos (stream HelloRequest) returns (stream HelloReply);
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+    string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+    string message = 1;
+}
